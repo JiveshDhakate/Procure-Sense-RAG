@@ -224,7 +224,6 @@ All parameters are tuned for **accuracy, determinism, and explainable supplier a
 |------------|--------|
 | **Model name** | `gpt-4o` *(default)* |
 | **Temperature** | `0.0` *(ensures deterministic and fact-consistent reasoning)* |
-| **Max tokens** | `1500` *(adjustable depending on prompt length)* |
 | **Purpose** | Used by `EvaluatorAgent` and `SummarizerAgent` for scoring, ranking, and generating final summaries. |
 
 **Example (EvaluatorAgent initialization):**
