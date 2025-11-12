@@ -9,6 +9,8 @@
 
 The system enables flexible supplier offer analysis by uploading plain-text quotations, retrieving relevant chunks, scoring offers with custom heuristics, and generating LLM-based summaries.
 
+ **Demo Video:** See `Demo Video.mp4` in the root directory for a walkthrough of system setup and live demo.
+
 ---
 
 ### 🔧 Key Features
