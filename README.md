@@ -883,5 +883,53 @@ Spear RAG is a modular, end-to-end Retrieval-Augmented Generation (RAG) system d
    - Monitor latency and add caching for repeated queries
 
 ---
+## 9. Examples Folder Overview
+
+The `examples/` directory provides real-world demonstration files for testing and validating the Spear RAG system end-to-end.  
+Each file corresponds to a specific phase of the pipeline — from ingestion to querying.
+
+---
+
+### Folder: `examples/`
+
+```
+examples/
+├── 1_Ingest Quotations.md      # Sample supplier quotation texts for ingestion via /upload
+├── 2_Queries.md                # Example user queries and expected responses for /query endpoint
+```
+
+---
+
+### Usage Guide
+
+1. **Ingest Quotations**
+   - Open `examples/1_Ingest Quotations.md`
+   - Copy the provided supplier quotation samples
+   - Paste them into the frontend **Upload Offers** page (or POST to `/upload`)
+   - This populates ChromaDB with supplier offer embeddings
+
+2. **Run Example Queries**
+   - Open `examples/2_Queries.md`
+   - Use the listed queries (e.g., “Find the best supplier for 6mm hex nuts under 1 dollar”)
+   - Enter these in the frontend **Query Offers** page (or POST to `/query`)
+   - Observe the model reasoning, evaluation, and final summarized recommendation
+
+---
+
+### File Purpose Summary
+
+| File | Description |
+|------|--------------|
+| **1_Ingest Quotations.md** | Contains formatted supplier quotation samples for testing the extractor and embedding process. |
+| **2_Queries.md** | Includes ready-to-use user queries for testing retrieval, evaluation, and summarization accuracy. |
+
+---
+
+### Notes
+- These markdown files are structured for quick testing without requiring CSV or JSON uploads.  
+- You can modify them to include new suppliers, products, or query types as your RAG pipeline evolves.
+
+---
 
 Spear RAG demonstrates a production-ready framework for real-world RAG systems. Its modularity allows easy adaptation to other domains such as insurance documents, legal contracts, healthcare records, or customer reviews.
+
