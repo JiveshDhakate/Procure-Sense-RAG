@@ -263,11 +263,10 @@ These vectors are reused during `/query` calls for similarity-based retrieval.
 ---
 
 ### Determinism and Reproducibility
-
 All agents use a **temperature of 0.0** and consistent parameters to maintain repeatable, traceable results.  
 This ensures that supplier evaluations remain stable and explainable, a key requirement for enterprise-grade procurement systems.
----
 
+---
 ## 3. Agents
 
 ### 3.1 ExtractorAgent
