@@ -1,0 +1,41 @@
+version: "3.9"
+
+services:
+  # ==============================
+  # BACKEND SERVICE (FastAPI)
+  # ==============================
+  backend:
+    build:
+      context: .                 # Points to the app directory for Dockerfile build
+      dockerfile: app/Dockerfile          # Uses app/Dockerfile to build the image
+    image: jiveshdhakate04/spear-rag-backend:latest
+    container_name: spear-rag-backend
+    ports:
+      - "8000:8000"                   # Maps container port 8000 → host port 8000
+    env_file: .env                    # Loads environment variables (e.g., API keys, secrets)
+    restart: always                   # Automatically restart if the container stops/crashes
+
+    # Volume mapping for persistent ChromaDB storage
+    # This mounts the host folder './chroma_db' (in your project root)
+    # to the container path '/app/chroma_db' used in your retriever code.
+    # All embeddings, indexes, and metadata are safely stored on the host,
+    # so data persists even after container restarts or rebuilds.
+    volumes:
+      - ./chroma_db:/app/chroma_db
+
+  # ==============================
+  # 💻 FRONTEND SERVICE (Streamlit)
+  # ==============================
+  frontend:
+    build:
+      context: ./frontend             # Points to the frontend directory for Dockerfile build
+      dockerfile: Dockerfile          # Uses frontend/Dockerfile to build the image
+    image: jiveshdhakate04/spear-rag-frontend:latest
+    container_name: spear-rag-frontend
+    ports:
+      - "8501:8501"                   # Maps container port 8501 → host port 8501 (Streamlit)
+    environment:
+      - BACKEND_URL=http://backend:8000   # Allows frontend to connect to backend service by name
+    depends_on:
+      - backend                       # Ensures backend starts first before frontend
+    restart: always                   # Auto-restart frontend if stopped

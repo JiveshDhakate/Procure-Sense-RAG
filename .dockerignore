@@ -1,0 +1,27 @@
+# Virtual environments
+.venv/
+env/
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# OS junk
+.DS_Store
+
+# Logs
+logs/
+*.log
+
+# Local data / Vector DB
+chroma_db/
+app/data/
+*.db
+
+# Env files
+.env
+
+# IDE
+.vscode/
+.idea/
