@@ -199,6 +199,74 @@ The Spear RAG system follows a clean, modular architecture with a multi-agent pi
 
 - **SummarizerAgent**  
   Uses an LLM to generate a concise, human-re
+---
+## 2.4 Model Configuration
+
+The Spear RAG system uses **OpenAI models** via the `langchain-openai` integration for both reasoning and semantic embeddings.  
+All parameters are tuned for **accuracy, determinism, and explainable supplier analysis**.
+
+---
+
+### Model Configuration Summary
+
+| Component | Model | Temperature | Role | Description |
+|------------|--------|--------------|------|--------------|
+| **LLM (EvaluatorAgent)** | gpt-4o | 0.0 | Reasoning | Generates structured supplier evaluation and reasoning |
+| **LLM (SummarizerAgent)** | gpt-4o | 0.0 | Summarization | Produces natural language summaries for top supplier offers |
+| **Embedding Model** | text-embedding-3-small | – | Retrieval | Converts supplier offers and queries into semantic embeddings |
+| **Vector Store** | ChromaDB | – | Storage | Stores embeddings with DuckDB and Parquet persistence |
+
+---
+
+### Language Model (LLM)
+
+| Parameter | Value |
+|------------|--------|
+| **Model name** | `gpt-4o` *(default)* |
+| **Temperature** | `0.0` *(ensures deterministic and fact-consistent reasoning)* |
+| **Max tokens** | `1500` *(adjustable depending on prompt length)* |
+| **Purpose** | Used by `EvaluatorAgent` and `SummarizerAgent` for scoring, ranking, and generating final summaries. |
+
+**Example (EvaluatorAgent initialization):**
+```python
+from langchain_openai import ChatOpenAI
+
+self.llm = ChatOpenAI(
+    model="gpt-4o",
+    temperature=0.0
+)
+```
+
+- The **EvaluatorAgent** uses this LLM to generate structured JSON reasoning for supplier ranking.  
+- The **SummarizerAgent** uses it to produce a natural-language summary of results.
+
+---
+
+### Embedding Model
+
+| Parameter | Value |
+|------------|--------|
+| **Model name** | `text-embedding-3-small` |
+| **Dimensions** | 1536 |
+| **Purpose** | Converts supplier offers and user queries into semantic vector representations for ChromaDB retrieval. |
+
+**Example (RetrieverAgent initialization):**
+```python
+from langchain_openai import OpenAIEmbeddings
+
+self.embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
+```
+
+Embeddings are created during the `/upload` process and stored persistently in **ChromaDB** under `./chroma_db/`.  
+These vectors are reused during `/query` calls for similarity-based retrieval.
+
+---
+
+### Determinism and Reproducibility
+
+All agents use a **temperature of 0.0** and consistent parameters to maintain repeatable, traceable results.  
+This ensures that supplier evaluations remain stable and explainable, a key requirement for enterprise-grade procurement systems.
+---
 
 ## 3. Agents
 
