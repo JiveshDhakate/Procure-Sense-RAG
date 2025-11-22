@@ -6,7 +6,7 @@ st.set_page_config(page_title="Upload Offers", page_icon="📤")
 st.title("📤 Upload Supplier Offer")
 
 BASE_URL = os.getenv("BACKEND_URL", "http://localhost:8000") 
-UPLOAD_URL = f"{BASE_URL}/spear-rag/ingest-offers"
+UPLOAD_URL = f"{BASE_URL}/procure-sense-rag/ingest-offers"
 
 with st.form("upload_form"):
     quotation_text = st.text_area(

@@ -1,6 +1,6 @@
-# Spear RAG – Multi-Agent RAG System for Supplier Quotation Analysis
+# Procure Sense RAG – Multi-Agent RAG System for Supplier Quotation Analysis
 
-**Spear RAG** is a modular, production-ready Retrieval-Augmented Generation (RAG) system built using:
+**Procure Sense RAG** is a modular, production-ready Retrieval-Augmented Generation (RAG) system built using:
 
 - **FastAPI** (backend)
 - **Streamlit** (frontend)
@@ -8,9 +8,6 @@
 - **LangChain + OpenAI** (LLM & agent logic)
 
 The system enables flexible supplier offer analysis by uploading plain-text quotations, retrieving relevant chunks, scoring offers with custom heuristics, and generating LLM-based summaries.
-
- **Demo Video:** See `Demo Video.mp4` in the root directory for a walkthrough of system setup and live demo.
-
 ---
 
 ### 🔧 Key Features
@@ -37,8 +34,8 @@ The system enables flexible supplier offer analysis by uploading plain-text quot
 ### 1.1: Clone the Repository
 
 ```bash
-git clone https://github.com/<your-username>/spear-rag.git
-cd spear-rag
+git clone https://github.com/<your-username>/procure-sense-rag.git
+cd procure-sense-rag
 ```
 ### 1.2 Set Up Python Environment with uv
 
@@ -97,8 +94,8 @@ services:
     build:
       context: ./app
       dockerfile: Dockerfile
-    image: spear-rag-backend
-    container_name: spear-rag-backend
+    image: procure-sense-rag-backend
+    container_name: procure-sense-rag-backend
     ports:
       - "8000:8000"
     env_file: .env
@@ -110,8 +107,8 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-    image: spear-rag-frontend
-    container_name: spear-rag-frontend
+    image: procure-sense-rag-frontend
+    container_name: procure-sense-rag-frontend
     ports:
       - "8501:8501"
     environment:
@@ -133,7 +130,7 @@ docker-compose up --build
 
 ## 2. System Architecture and Data Flow
 
-The Spear RAG system follows a clean, modular architecture with a multi-agent pipeline for processing supplier quotations.
+The Procure Sense RAG system follows a clean, modular architecture with a multi-agent pipeline for processing supplier quotations.
 
 ---
 
@@ -204,7 +201,7 @@ The Spear RAG system follows a clean, modular architecture with a multi-agent pi
 ---
 ## 2.4 Model Configuration
 
-The Spear RAG system uses **OpenAI models** via the `langchain-openai` integration for both reasoning and semantic embeddings.  
+The Procure Sense RAG system uses **OpenAI models** via the `langchain-openai` integration for both reasoning and semantic embeddings.  
 All parameters are tuned for **accuracy, determinism, and explainable supplier analysis**.
 
 ---
@@ -614,7 +611,7 @@ Each response is designed to be frontend-friendly, allowing clean display of bot
 
 ## 5. Frontend Overview
 
-The frontend is built using [Streamlit](https://streamlit.io/) and serves as a simple, user-friendly interface to interact with the Spear RAG backend.
+The frontend is built using [Streamlit](https://streamlit.io/) and serves as a simple, user-friendly interface to interact with the Procure Sense RAG backend.
 
 ---
 
@@ -688,7 +685,8 @@ The frontend communicates with the backend using standard HTTP POST requests, en
 
 ## 6. ChromaDB Usage and Flexibility
 
-ChromaDB is used as the core vector store for semantic retrieval in Spear RAG. It allows fast and persistent access to embedded supplier offers, enabling scalable and flexible RAG pipelines.
+ChromaDB is used as the core vector store for semantic retrieval in 
+ RAG. It allows fast and persistent access to embedded supplier offers, enabling scalable and flexible RAG pipelines.
 
 ---
 
@@ -779,8 +777,8 @@ services:
     build:
       context: ./app
       dockerfile: Dockerfile
-    image: spear-rag-backend
-    container_name: spear-rag-backend
+    image: procures-sense-rag-backend
+    container_name: procure-sense-rag-backend
     ports:
       - "8000:8000"
     env_file: .env
@@ -850,14 +848,14 @@ elif VECTOR_STORE == "pinecone":
 
 ---
 
-This makes Spear RAG highly flexible for local dev, containerized deployments, and production-scale cloud RAG pipelines.
+This makes Procure Sense RAG highly flexible for local dev, containerized deployments, and production-scale cloud RAG pipelines.
 ---
 ## 7. Project Folder Structure
 
-The Spear RAG project is organized into modular folders for backend agents, route handlers, frontend UI, and unit tests. This supports clean development, maintainability, and extensibility.
+The Procure Sense RAG project is organized into modular folders for backend agents, route handlers, frontend UI, and unit tests. This supports clean development, maintainability, and extensibility.
 
 ```
-spear-rag/
+procure-sense-rag/
 ├── .venv/                         # Virtual environment (uv-based)
 ├── .env                           # Environment variables (e.g., OpenAI key)
 ├── .gitignore
@@ -914,7 +912,7 @@ This structure supports clean modularization, reusabilit
 ---
 ## 8. Summary and Future Work
 
-Spear RAG is a modular, end-to-end Retrieval-Augmented Generation (RAG) system designed for supplier quotation analysis. It integrates a multi-agent backend (Extractor, Retriever, Evaluator, Summarizer) with a simple Streamlit frontend and persistent ChromaDB-based vector storage.
+Procure Sense RAG is a modular, end-to-end Retrieval-Augmented Generation (RAG) system designed for supplier quotation analysis. It integrates a multi-agent backend (Extractor, Retriever, Evaluator, Summarizer) with a simple Streamlit frontend and persistent ChromaDB-based vector storage.
 
 ---
 
@@ -953,7 +951,7 @@ Spear RAG is a modular, end-to-end Retrieval-Augmented Generation (RAG) system d
 ---
 ## 9. Examples Folder Overview
 
-The `examples/` directory provides real-world demonstration files for testing and validating the Spear RAG system end-to-end.  
+The `examples/` directory provides real-world demonstration files for testing and validating the Procure Sense RAG system end-to-end.  
 Each file corresponds to a specific phase of the pipeline — from ingestion to querying.
 
 ---
@@ -999,5 +997,5 @@ examples/
 
 ---
 
-Spear RAG demonstrates a production-ready framework for real-world RAG systems. Its modularity allows easy adaptation to other domains such as insurance documents, legal contracts, healthcare records, or customer reviews.
+Procure Sense RAG demonstrates a production-ready framework for real-world RAG systems. Its modularity allows easy adaptation to other domains such as insurance documents, legal contracts, healthcare records, or customer reviews.
 

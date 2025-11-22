@@ -8,8 +8,8 @@ services:
     build:
       context: .                 # Points to the app directory for Dockerfile build
       dockerfile: app/Dockerfile          # Uses app/Dockerfile to build the image
-    image: jiveshdhakate04/spear-rag-backend:latest
-    container_name: spear-rag-backend
+    image: jiveshdhakate04/procure-sense-rag-backend:latest
+    container_name: procure-sense-rag-backend
     ports:
       - "8000:8000"                   # Maps container port 8000 → host port 8000
     env_file: .env                    # Loads environment variables (e.g., API keys, secrets)
@@ -30,8 +30,8 @@ services:
     build:
       context: ./frontend             # Points to the frontend directory for Dockerfile build
       dockerfile: Dockerfile          # Uses frontend/Dockerfile to build the image
-    image: jiveshdhakate04/spear-rag-frontend:latest
-    container_name: spear-rag-frontend
+    image: jiveshdhakate04/procure-sense-rag-frontend:latest
+    container_name: procure-sense-rag-frontend
     ports:
       - "8501:8501"                   # Maps container port 8501 → host port 8501 (Streamlit)
     environment:

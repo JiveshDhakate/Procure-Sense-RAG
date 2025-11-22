@@ -8,7 +8,7 @@ st.title("🔍 Query Supplier Offers")
 
 # Use environment variable for backend 
 BASE_URL = os.getenv("BACKEND_URL", "http://localhost:8000")  
-QUERY_URL = f"{BASE_URL}/spear-rag/evaluate-offers" 
+QUERY_URL = f"{BASE_URL}/procure-sense-rag/evaluate-offers" 
 
 with st.form("query_form"):
     query_text = st.text_input(

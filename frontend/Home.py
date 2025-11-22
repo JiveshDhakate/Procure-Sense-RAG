@@ -3,7 +3,7 @@ from datetime import datetime
 
 # ------------------- Page Setup -------------------
 st.set_page_config(
-    page_title="🏠 Home | Spear-RAG",
+    page_title="🏠 Home | Procure-Sense-RAG",
     page_icon="⚙️",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -40,14 +40,14 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.markdown('<h1 class="main-title">⚙️ Spear-RAG: Multi-Agent System for Supplier Quotation Analysis</h1>', unsafe_allow_html=True)
+st.markdown('<h1 class="main-title">⚙️ Procure Sense RAG: Multi-Agent System for Supplier Quotation Analysis</h1>', unsafe_allow_html=True)
 st.markdown('<p class="subtitle">Empowering procurement intelligence through Retrieval-Augmented Generation and Multi-Agent reasoning.</p>', unsafe_allow_html=True)
 
 # ------------------- Content -------------------
 st.markdown("### 🧠 What is this?")
 st.info(
     """
-    **Spear-RAG** combines four specialized AI agents —  
+    **Procure Sense RAG** combines four specialized AI agents —  
     🧩 **Extractor**, 🧮 **Retriever**, ⚖️ **Evaluator**, and 📝 **Summarizer** —  
     to analyze supplier quotations, compare offers, and recommend the best choice with transparent reasoning.
     """
