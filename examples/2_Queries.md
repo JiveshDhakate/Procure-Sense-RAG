@@ -1,6 +1,6 @@
 # Supplier Query–Answer Set (Robust Evaluation)
 
-This file contains **10 robust test cases** for the Spear RAG system, including valid matches and "No Offer" scenarios.  
+This file contains **10 robust test cases** for the Procure Sense RAG system, including valid matches and "No Offer" scenarios.  
 Use them to validate retrieval accuracy, multi-criteria evaluation, and LLM summarization consistency.
 
 ---
